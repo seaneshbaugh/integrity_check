@@ -1,0 +1,8 @@
+[package]
+name = "integrity-check"
+version = "0.0.1"
+authors = ["Sean Eshbaugh <seaneshbaugh@gmail.com>"]
+license = "MIT"
+
+[dependencies]
+lazy_static = "0.1.*"
