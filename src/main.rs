@@ -36,6 +36,6 @@ fn main() {
 
         println!("crc32 = {}", integrity_check::digest::crc32::digest(&bytes));
 
-//        println!("md5 = {}", integrity_check::digest::md5::digest(&bytes));
+        println!("md5 = {}", integrity_check::digest::md5::digest(&bytes));
     }
 }
