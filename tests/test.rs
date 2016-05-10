@@ -42,6 +42,14 @@ lazy_static! {
         }
     };
 
+    static ref SHA224_EXPECTED: HashMap<&'static str, &'static str> = {
+        map!{
+            "" => "d14a028c2a3a2bc9476102bb288234c415a2b01f828ea62ac5b3e42f",
+            "hello" => "ea09ae9cc6768c50fcee903ed054556e5bfc8347907f12598aa24193",
+            "world" => "06d2dbdb71973e31e4f1df3d7001fa7de268aa72fcb1f6f9ea37e0e5"
+        }
+    };
+
     static ref SHA256_EXPECTED: HashMap<&'static str, &'static str> = {
         map!{
             "" => "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -69,6 +77,13 @@ fn test_md5() {
 fn test_sha1() {
     for (string, expected) in SHA1_EXPECTED.iter() {
         assert_eq!(integrity_check::digest::sha1::digest(&string.to_string().into_bytes()), expected.to_string());
+    }
+}
+
+#[test]
+fn test_sha224() {
+    for (string, expected) in SHA224_EXPECTED.iter() {
+        assert_eq!(integrity_check::digest::sha224::digest(&string.to_string().into_bytes()), expected.to_string());
     }
 }
 
