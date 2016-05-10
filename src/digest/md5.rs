@@ -202,9 +202,9 @@ pub fn digest(bytes: &Vec<u8>) -> String {
 
     let mut result = "".to_string();
 
-    for x in [a, b, c, d].iter() {
+    for word in [a, b, c, d].iter() {
         for i in 0..4 {
-            result.push_str(&format!("{:02x}", (x >> (i * 8)) as u8));
+            result.push_str(&format!("{:02x}", (word >> (i * 8)) as u8));
         }
     }
 
