@@ -34,10 +34,24 @@ fn main() {
 
         let bytes: Vec<u8> = buffer.into_bytes();
 
-        println!("crc32 = {}", integrity_check::digest::crc32::digest(&bytes));
+        let file_name: std::borrow::Cow<str> = argument.to_string_lossy();
 
-        println!("md5 = {}", integrity_check::digest::md5::digest(&bytes));
+        println!("{}", file_name);
 
-        println!("sha1 = {}", integrity_check::digest::sha1::digest(&bytes));
+        for _ in 0..(file_name.len()) {
+            print!("-");
+        }
+
+        println!("");
+
+        println!(" crc32 = {}", integrity_check::digest::crc32::digest(&bytes));
+
+        println!("   md5 = {}", integrity_check::digest::md5::digest(&bytes));
+
+        println!("  sha1 = {}", integrity_check::digest::sha1::digest(&bytes));
+
+        println!("sha256 = {}", integrity_check::digest::sha256::digest(&bytes));
+
+        println!("");
     }
 }
