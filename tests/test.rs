@@ -57,6 +57,14 @@ lazy_static! {
             "world" => "486ea46224d1bb4fb680f34f7c9ad96a8f24ec88be73ea8e5a6c65260e9cb8a7"
         }
     };
+
+    static ref SHA512_EXPECTED: HashMap<&'static str, &'static str> = {
+        map!{
+            "" => "cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e",
+            "hello" => "9b71d224bd62f3785d96d46ad3ea3d73319bfbc2890caadae2dff72519673ca72323c3d99ba5c11d7c7acc6e14b8c5da0c4663475c2e5c3adef46f73bcdec043",
+            "world" => "11853df40f4b2b919d3815f64792e58d08663767a494bcbb38c0b2389d9140bbb170281b4a847be7757bde12c9cd0054ce3652d0ad3a1a0c92babb69798246ee"
+        }
+    };
 }
 
 #[test]
@@ -91,5 +99,12 @@ fn test_sha224() {
 fn test_sha256() {
     for (string, expected) in SHA256_EXPECTED.iter() {
         assert_eq!(integrity_check::digest::sha256::digest(&string.to_string().into_bytes()), expected.to_string());
+    }
+}
+
+#[test]
+fn test_sha512() {
+    for (string, expected) in SHA512_EXPECTED.iter() {
+        assert_eq!(integrity_check::digest::sha512::digest(&string.to_string().into_bytes()), expected.to_string());
     }
 }
