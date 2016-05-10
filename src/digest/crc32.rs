@@ -14,7 +14,7 @@ lazy_static! {
                     _ => !(and1) + 1
                 };
 
-                crc = (crc >> 1) ^ (0xEDB88320 & mask);
+                crc = (crc >> 1) ^ (0xedb88320 & mask);
             }
 
             table[index] = crc;
@@ -29,10 +29,10 @@ pub fn digest(bytes: &Vec<u8>) -> String {
         return "00000000".to_string();
     }
 
-    let mut crc: u32 = 0xFFFFFFFF;
+    let mut crc: u32 = 0xffffffff;
 
     for byte in bytes {
-        crc = (crc >> 8) ^ LOOKUP_TABLE[((crc ^ (*byte as u32)) & 0xFF) as usize];
+        crc = (crc >> 8) ^ LOOKUP_TABLE[((crc ^ (*byte as u32)) & 0xff) as usize];
     }
 
     format!("{:01$x}", !crc, 8)
