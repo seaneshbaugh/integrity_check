@@ -35,5 +35,5 @@ pub fn digest(bytes: &Vec<u8>) -> String {
         crc = (crc >> 8) ^ LOOKUP_TABLE[((crc ^ (*byte as u32)) & 0xff) as usize];
     }
 
-    format!("{:01$x}", !crc, 8)
+    format!("{:08x}", !crc)
 }
