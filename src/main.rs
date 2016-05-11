@@ -44,19 +44,19 @@ fn main() {
 
         println!("");
 
-        println!(" crc32 = {}", integrity_check::digest::crc32::digest(&bytes));
+        println!("   CRC32 = {}", integrity_check::digest::crc32::digest(&bytes));
 
-        println!("   md5 = {}", integrity_check::digest::md5::digest(&bytes));
+        println!("     MD5 = {}", integrity_check::digest::md5::digest(&bytes));
 
-        println!("  sha1 = {}", integrity_check::digest::sha1::digest(&bytes));
+        println!("    SHA1 = {}", integrity_check::digest::sha1::digest(&bytes));
 
-        println!("sha224 = {}", integrity_check::digest::sha2_224::digest(&bytes));
+        println!("SHA2-224 = {}", integrity_check::digest::sha2_224::digest(&bytes));
 
-        println!("sha256 = {}", integrity_check::digest::sha2_256::digest(&bytes));
+        println!("SHA2-256 = {}", integrity_check::digest::sha2_256::digest(&bytes));
 
-        println!("sha384 = {}", integrity_check::digest::sha2_384::digest(&bytes));
+        println!("SHA2-384 = {}", integrity_check::digest::sha2_384::digest(&bytes));
 
-        println!("sha512 = {}", integrity_check::digest::sha2_512::digest(&bytes));
+        println!("SHA2-512 = {}", integrity_check::digest::sha2_512::digest(&bytes));
 
         println!("");
     }
