@@ -50,13 +50,13 @@ fn main() {
 
         println!("  sha1 = {}", integrity_check::digest::sha1::digest(&bytes));
 
-        println!("sha224 = {}", integrity_check::digest::sha224::digest(&bytes));
+        println!("sha224 = {}", integrity_check::digest::sha2_224::digest(&bytes));
 
-        println!("sha256 = {}", integrity_check::digest::sha256::digest(&bytes));
+        println!("sha256 = {}", integrity_check::digest::sha2_256::digest(&bytes));
 
-        println!("sha384 = {}", integrity_check::digest::sha384::digest(&bytes));
+        println!("sha384 = {}", integrity_check::digest::sha2_384::digest(&bytes));
 
-        println!("sha512 = {}", integrity_check::digest::sha512::digest(&bytes));
+        println!("sha512 = {}", integrity_check::digest::sha2_512::digest(&bytes));
 
         println!("");
     }
