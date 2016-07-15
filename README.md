@@ -1,6 +1,13 @@
 # Integrity Check
 
-Find various checksums of files.
+Find various hashes/checksums of files.
+
+Currently supports:
+
+* CRC32
+* MD5
+* SHA1
+* SHA2 (224/256/384/512)
 
 ## Building
 
