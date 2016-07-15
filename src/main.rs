@@ -21,9 +21,9 @@ fn main() {
 
         let mut file = File::open(argument).unwrap();
 
-        let mut buffer = String::new();
+        let mut bytes = Vec::new();
 
-        match file.read_to_string(&mut buffer) {
+        match file.read_to_end(&mut bytes) {
             Ok(_) => (),
             Err(e) => {
                 writeln!(&mut std::io::stderr(), "Error reading file {:?}. {}.", argument, e.to_string()).unwrap();
@@ -31,8 +31,6 @@ fn main() {
                 std::process::exit(1);
             }
         }
-
-        let bytes: Vec<u8> = buffer.into_bytes();
 
         let file_name: std::borrow::Cow<str> = argument.to_string_lossy();
 
