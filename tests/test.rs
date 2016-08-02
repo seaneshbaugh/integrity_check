@@ -107,6 +107,39 @@ lazy_static! {
         }
     };
 
+    static ref SHA3_224_EXPECTED: HashMap<&'static str, &'static str> = {
+        map!{
+            "" => "6b4e03423667dbb73b6e15454f0eb1abd4597f9a1b078e3f5b5a6bc7",
+            "hello" => "b87f88c72702fff1748e58b87e9141a42c0dbedc29a78cb0d4a5cd81",
+            "world" => "cd7b2b8e2d55948edcc4811388ab3915f26df12e6b7a39f744efdb95",
+            &SMALL_TEST_FILE_CONTENTS => "1eb7f31e4265909fc083426132d9ee1662e5d081d1672c122a6b0496",
+            &MEDIUM_TEST_FILE_CONTENTS => "32a5d228892ccb33f8c00e69d18687ad4b9c8668e2d553065e5fc3c2",
+            &LARGE_TEST_FILE_CONTENTS => "f02f7b7f3840ed256cf62682eecab248f27af3a5c623a294298b4b59"
+        }
+    };
+
+    static ref SHA3_256_EXPECTED: HashMap<&'static str, &'static str> = {
+        map!{
+            "" => "a7ffc6f8bf1ed76651c14756a061d662f580ff4de43b49fa82d80a4b80f8434a",
+            "hello" => "3338be694f50c5f338814986cdf0686453a888b84f424d792af4b9202398f392",
+            "world" => "420baf620e3fcd9b3715b42b92506e9304d56e02d3a103499a3a292560cb66b2",
+            &SMALL_TEST_FILE_CONTENTS => "ce510fc983ddecbfb54d25304de06e6474651b9e0443e9ef92b07af387786416",
+            &MEDIUM_TEST_FILE_CONTENTS => "ed0d7bd5ada0e0670fa6368e1172c8e278574ef6871a740ad3fd36ec280a15e7",
+            &LARGE_TEST_FILE_CONTENTS => "e13cb19010e3a20c6a4429eb44bc883da9976890a6fe424e3d61ddde21b20924"
+        }
+    };
+
+    static ref SHA3_384_EXPECTED: HashMap<&'static str, &'static str> = {
+        map!{
+            "" => "0c63a75b845e4f7d01107d852e4c2485c51a50aaaa94fc61995e71bbee983a2ac3713831264adb47fb6bd1e058d5f004",
+            "hello" => "720aea11019ef06440fbf05d87aa24680a2153df3907b23631e7177ce620fa1330ff07c0fddee54699a4c3ee0ee9d887",
+            "world" => "693ff8ff69391116b2763613c60b560fbba523ecbad06e2e93a0511239cea39a272614535f6a4c7dc6d1ea6f477563a4",
+            &SMALL_TEST_FILE_CONTENTS => "0840afd9bce4805232e804bab1e1054b20220f81d4c2bc41bab786dc1836e77edc9c2495c0eff546daec8b3854bc67ae",
+            &MEDIUM_TEST_FILE_CONTENTS => "9bb7686aa798b94751bae19a8d4818320bb44142f3c72183f423eb19c196890c522713616edce63c5184aad17f1f2598",
+            &LARGE_TEST_FILE_CONTENTS => "037d2ecd06990071aab20f18d7e68defcb402a75bcc62612db25381b17f1afd178c835efcc11fd069ca7b336c140bef9"
+        }
+    };
+
     static ref SHA3_512_EXPECTED: HashMap<&'static str, &'static str> = {
         map!{
             "" => "a69f73cca23a9ac5c8b567dc185a756e97c982164fe25859e0d1dcc1475c80a615b2123af1f5f94c11e3e9402c3ac558f500199d95b6d3e301758586281dcd26",
@@ -165,6 +198,27 @@ fn test_sha2_384() {
 fn test_sha2_512() {
     for (string, expected) in SHA2_512_EXPECTED.iter() {
         assert_eq!(integrity_check::digest::sha2_512::digest(&string.to_string().into_bytes()), expected.to_string());
+    }
+}
+
+#[test]
+fn test_sha3_224() {
+    for (string, expected) in SHA3_224_EXPECTED.iter() {
+        assert_eq!(integrity_check::digest::sha3_224::digest(&string.to_string().into_bytes()), expected.to_string());
+    }
+}
+
+#[test]
+fn test_sha3_256() {
+    for (string, expected) in SHA3_256_EXPECTED.iter() {
+        assert_eq!(integrity_check::digest::sha3_256::digest(&string.to_string().into_bytes()), expected.to_string());
+    }
+}
+
+#[test]
+fn test_sha3_384() {
+    for (string, expected) in SHA3_384_EXPECTED.iter() {
+        assert_eq!(integrity_check::digest::sha3_384::digest(&string.to_string().into_bytes()), expected.to_string());
     }
 }
 
