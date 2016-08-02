@@ -8,6 +8,7 @@ Currently supports:
 * MD5
 * SHA1
 * SHA2 (224/256/384/512)
+* SHA3 (512)
 
 ## Building
 

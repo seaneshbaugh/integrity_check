@@ -56,6 +56,8 @@ fn main() {
 
         println!("SHA2-512 = {}", integrity_check::digest::sha2_512::digest(&bytes));
 
+        println!("SHA3-512 = {}", integrity_check::digest::sha3_512::digest(&bytes));
+
         println!("");
     }
 }

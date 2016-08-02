@@ -5,3 +5,5 @@ pub mod sha2_224;
 pub mod sha2_256;
 pub mod sha2_384;
 pub mod sha2_512;
+mod sha3;
+pub mod sha3_512;
