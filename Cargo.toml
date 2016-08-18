@@ -1,5 +1,5 @@
 [package]
-name = "integrity-check"
+name = "integrity_check"
 version = "0.0.1"
 authors = ["Sean Eshbaugh <seaneshbaugh@gmail.com>"]
 license = "MIT"

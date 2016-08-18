@@ -12,12 +12,16 @@ Currently supports:
 
 ## Building
 
-    cargo build
+    $ cargo build
 
 ## Testing
 
-    cargo test
+    $ cargo test
 
 ## Usage
 
-    ./target/debug/integrity-check file1.txt file2.txt file3.txt
+    $ cargo run file1.txt file2.txt file3.txt
+
+or
+
+    $ ./target/debug/integrity_check file1.txt file2.txt file3.txt
